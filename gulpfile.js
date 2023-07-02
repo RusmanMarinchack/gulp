@@ -47,7 +47,7 @@ function html() {
         const $element = $(element);
         const src = $element.attr('src');
         if (src && !src.endsWith('.svg')) {
-          $element.replaceWith(`<picture><source srcset="${src}.webp" type="image/webp"><img src="${src}" alt=""></picture>`);
+          $element.replaceWith(`<picture><source srcset="${src}" type="image/webp"><img src="${src}" alt=""></picture>`);
         }
       });
     }))
