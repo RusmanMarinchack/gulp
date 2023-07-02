@@ -1,0 +1,46 @@
+@import 'mixin';
+@import 'fonts';
+@import 'normalize';
+@import 'header';
+
+*{
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+} 
+
+body{
+    font-family: 'segoescript', sans-serif;
+    // background-image: url('../img/five-six-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+._container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+.section {
+    min-height: calc(100vh - 70px);
+
+    // .section__item
+
+    &__item {
+        font-size: 30px;
+        position: absolute;
+    }
+
+    .section-item-1{
+        top: 20%;
+        left: 10%;
+    }
+    .section-item-2{
+        top: 50%;
+        right: 10%;
+    }
+}
