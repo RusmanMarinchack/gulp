@@ -42,7 +42,9 @@ function html() {
   return src(['src/*.html', '!src/_*.html'])
     .pipe(fileinclude())
     // .pipe(webpHTML())
-    .pipe(cheerio(($) => {
+    .pipe(cheerio({
+        decodeEntities: false // Вимкнути екранизацію символів
+      },($) => {
       $('img').each((_, element) => {
         const $element = $(element);
         const src = $element.attr('src');
