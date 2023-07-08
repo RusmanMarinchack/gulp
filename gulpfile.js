@@ -137,9 +137,10 @@ function optimizeSvg() {
           dest: '.',
           example: true,
           sprite: 'sprite.svg',
-        },
-      }
+        }
+      },
     }))
+    .pipe(replace(/id="svg--/g, 'id="icon-'))
     .pipe(dest('dist/img/svg'))
 }
 

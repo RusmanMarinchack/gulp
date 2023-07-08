@@ -1,7 +1,6 @@
 @import 'mixin';
 @import 'fonts';
 @import 'normalize';
-@import 'header';
 
 *{
     box-sizing: border-box;
@@ -23,4 +22,9 @@ body{
     padding: 0 15px;
     margin: 0 auto;
 }
+
+// Підключаємо аккардеон по сайту.
+@import 'accardeons';
+
+@import 'header';
 

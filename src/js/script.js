@@ -37,3 +37,64 @@ if (isMobile.any()){
 }
 
 let events = document.body.classList.contains('_touch') ? 'click' : 'mousemove';
+
+// Робимо бургер меню.
+function burger() {
+    let burger = document.querySelector('.header__burger')
+
+    if(burger) {
+        burger.addEventListener('click', function() {
+            if(this.classList.contains('active')) {
+                this.classList.remove('active')
+            } else {
+                this.classList.add('active')
+            }
+        })
+    }
+}
+burger()
+
+// Робимо акардеони по сайту.
+function accardeonsSite() {
+    let accardeons = document.querySelectorAll('.accardeons')
+
+    if(accardeons.length > 0) {
+        accardeons.forEach(accardeon => {
+            let accardeonHeader = accardeon.querySelectorAll('.accardeons__header')
+            
+            if(accardeonHeader.length > 0) {
+                accardeonHeader.forEach(header => {
+                    header.addEventListener('click', function() {
+                        let body = this.nextElementSibling
+                        let bodyHeight = body.scrollHeight
+
+                        if(this.classList.contains('active')) {
+                            removeClassActive()
+                            this.classList.remove('active')
+                            body.classList.remove('active')
+                            body.style.height = `0px`
+                        } else {
+                            removeClassActive()
+                            this.classList.add('active')
+                            body.classList.add('active')
+                            body.style.height = `${bodyHeight}px`
+                        }
+                    })
+                })
+
+                // Видаляємо клас active в accardeonHeader.
+                function removeClassActive() {
+                    accardeonHeader.forEach(header => {
+                        header.classList.remove('active')
+
+                        let body = header.nextElementSibling
+
+                        body.classList.remove('active')
+                        body.style.height = `0px`
+                    })
+                }
+            }
+        })
+    }
+}
+accardeonsSite()
