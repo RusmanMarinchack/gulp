@@ -1,0 +1,26 @@
+.tabs {
+
+    // .tabs__header
+
+    &__header {
+    }
+
+    // .tabs__item
+
+    &__item {
+
+        &.active {
+            color: red;
+        }
+    }
+
+    // .tabs__body
+
+    &__body {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}

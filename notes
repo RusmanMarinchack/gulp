@@ -1,0 +1,34 @@
+    // accardeons 
+    <div class="accardeons">
+        <div class="accardeons__wrapper">
+          <div class="accardeons__header">accardeons 1</div>
+          <div class="accardeons__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, labore.</div>
+        </div>
+      </div>
+    // popap
+      <button class="popap-btn" data-id="popap1">popap 1</button>
+
+      <div class="popap-shadow">
+        <div class="popap" id="popap1">
+          <button class="popap__close">X</button>
+          popap content
+        </div>
+      </div>
+    // tabs
+      <div class="tabs">
+        <div class="tabs__header">
+          <div class="tabs__item active" data-tab-index="1">tab 1</div>
+          <div class="tabs__item" data-tab-index="2">tab 2</div>
+        </div>
+        <div class="tabs__body tabs__body-1 active">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officiis ab vel labore dolor nulla fugit aperiam doloribus illo ipsum?
+        </div>
+        <div class="tabs__body tabs__body-2">
+          Lorem ipsum dolor sit amet consectetur ?
+        </div>
+      </div>
+
+    // svg
+    <svg>
+        <use xlink:href="./img/svg/stack/sprite.svg#svg--filter"/>
+    </svg>
