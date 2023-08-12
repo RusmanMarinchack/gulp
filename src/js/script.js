@@ -54,47 +54,45 @@ burger()
 function accardeonsSite() {
     let accardeons = document.querySelectorAll('.accardeons')
 
-    if(accardeons.length > 0) {
+    if (accardeons.length > 0) {
         accardeons.forEach(accardeon => {
             let accardeonHeader = accardeon.querySelectorAll('.accardeons__header')
-            
-            if(accardeonHeader.length > 0) {
+
+            if (accardeonHeader.length > 0) {
                 accardeonHeader.forEach(header => {
-                    header.addEventListener('click', function() {
+                    header.addEventListener('click', function () {
                         let body = this.nextElementSibling
                         let bodyHeight = body.scrollHeight
 
-                        if(this.classList.contains('active')) {
-                            removeClassActive()
-                            this.classList.remove('active')
-                            body.classList.remove('active')
-                            body.style.height = `0px`
+                        if (this.classList.contains('active')) {
+                            this.classList.remove('active');
+                            body.classList.remove('active');
+                            body.style.height = `0px`;
                         } else {
-                            removeClassActive()
-                            this.classList.add('active')
-                            body.classList.add('active')
-                            body.style.height = `${bodyHeight}px`
+                            removeClassActive();
+                            this.classList.add('active');
+                            body.classList.add('active');
+                            body.style.height = `${bodyHeight}px`;
                         }
-                    })
-                })
+                    });
+                });
 
                 // Видаляємо клас active в accardeonHeader.
                 function removeClassActive() {
                     accardeonHeader.forEach(header => {
-                        header.classList.remove('active')
-
-                        let body = header.nextElementSibling
-
-                        if(body) {
-                            body.classList.remove('active')
-                            body.style.height = `0px`
+                        header.classList.remove('active');
+                        let body = header.nextElementSibling;
+                        if (body) {
+                            body.classList.remove('active');
+                            body.style.height = `0px`;
                         }
-                    })
+                    });
                 }
             }
-        })
+        });
     }
 }
+
 accardeonsSite()
 
 
@@ -198,3 +196,59 @@ function heandlerTabs() {
     }
 }
 heandlerTabs()
+
+// При скролі додаємо класс для header щоб зафіксувати.
+function fixedHeader() {
+    let header = document.querySelector('.header')
+    let headerHeight = header.clientHeight
+
+    if(header) {
+        let nextElement = header.nextElementSibling
+
+        if(window.matchMedia("(min-width: 1023.98px)").matches) {
+            document.addEventListener('scroll', function() {
+                if(window.scrollY > headerHeight) {
+                    header.classList.add('fixed')
+                    nextElement.style.marginTop = `${headerHeight}px`
+                } else {
+                    header.classList.remove('fixed')
+                    nextElement.style.marginTop = `0px`
+                }
+            })
+        }
+    }
+}
+document.addEventListener('resize', fixedHeader())
+
+
+// Робимо плавну прокрутку до якорів.
+function goAnchor() {
+    let btnAnchors = document.querySelectorAll('.btn-anchor')
+    let burger = document.querySelector('.header__burger')
+    let innerHeader = document.querySelector('.header__inner')
+
+    if(btnAnchors.length > 0) {
+        btnAnchors.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault()
+
+                let header = document.querySelector('.header')
+
+                header.classList.remove("burger-active")
+                burger.classList.remove("active")
+                innerHeader.classList.remove("active")
+    
+                let id = btn.dataset.id
+                let section = document.querySelector(`#${id}`)
+                
+                if(section) {
+                    window.scrollBy({
+                        top: (section.getBoundingClientRect().top - header.clientHeight),
+                        behavior: 'smooth'
+                    })
+                }
+            })
+        })
+    }
+}
+goAnchor()

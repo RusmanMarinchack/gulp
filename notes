@@ -4,6 +4,10 @@
           <div class="accardeons__header">accardeons 1</div>
           <div class="accardeons__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, labore.</div>
         </div>
+        <div class="accardeons__wrapper">
+          <div class="accardeons__header">accardeons 2</div>
+          <div class="accardeons__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, labore.</div>
+        </div>
       </div>
     // popap
       <button class="popap-btn" data-id="popap1">popap 1</button>

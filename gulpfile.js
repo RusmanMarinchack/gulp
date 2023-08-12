@@ -15,7 +15,7 @@ const ttf2woff2 = require('gulp-ttf2woff2');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp')
 const replace = require('gulp-replace');
-const webpHTML = require('gulp-webp-html');
+const webpHTML = require('gulp-webp-html-nosvg');
 const webpcss = require("gulp-webp-css");
 const changed = require('gulp-changed');
 const minSvg = require('gulp-svgmin');
@@ -41,18 +41,18 @@ function browsersync() {
 function html() {
   return src(['src/*.html', '!src/_*.html'])
     .pipe(fileinclude())
-    // .pipe(webpHTML())
-    .pipe(cheerio({
-        decodeEntities: false // Вимкнути екранизацію символів
-      },($) => {
-      $('img').each((_, element) => {
-        const $element = $(element);
-        const src = $element.attr('src');
-        if (src && !src.endsWith('.svg')) {
-          $element.replaceWith(`<picture><source srcset="${src}" type="image/webp"><img src="${src}" alt=""></picture>`);
-        }
-      });
-    }))
+    .pipe(webpHTML())
+    // .pipe(cheerio({
+    //     decodeEntities: false // Вимкнути екранизацію символів
+    //   },($) => {
+    //   $('img').each((_, element) => {
+    //     const $element = $(element);
+    //     const src = $element.attr('src');
+    //     if (src && !src.endsWith('.svg')) {
+    //       $element.replaceWith(`<picture><source srcset="${src}" type="image/webp"><img src="${src}" alt=""></picture>`);
+    //     }
+    //   });
+    // }))
     // Жимаємо файл html
     // .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest(dist + '/'))
