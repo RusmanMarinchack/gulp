@@ -1,35 +1,67 @@
-@import 'mixin';
-@import 'fonts';
-@import 'normalize';
+@import "mixin";
 
-*{
-    box-sizing: border-box;
+:root {
+
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-} 
+@import "fonts";
+@import "normalize";
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex: 1 0 auto;
-    font-family: 'segoescript', sans-serif;
-    // background-image: url('../img/five-six-background.jpg');
-    background-size: cover;
-    background-position: center;
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  line-height: 140%;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  font-style: normal;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
 }
 
 ._container {
-    max-width: 1200px;
-    padding: 0 15px;
-    margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 // Підключаємо аккардеон по сайту.
-@import 'accardeons';
+// @import "accardeons";
 
 // Підключаємо попап по сайту.
 // @import 'popap';
@@ -37,7 +69,6 @@ body{
 // Підключаємо таби по сайту
 // @import 'tabs';
 
-@import 'header';
+@import "header";
 
-@import 'footer';
-
+@import "footer";
