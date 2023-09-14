@@ -279,7 +279,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+input, textarea {
+  outline: none;
+}
+
 button {
+  color: initial;
   border: none;
   cursor: pointer;
 }
@@ -296,6 +301,9 @@ ul {
   margin: 0 auto;
 }
 
+.header {
+  position: fixed;
+}
 .header__burger {
   display: none;
   width: 40px;
