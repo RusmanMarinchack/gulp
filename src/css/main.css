@@ -396,6 +396,100 @@ ul {
   transition: all 0.3s ease-in-out;
   z-index: 1;
 }
+
+.wrapper {
+  position: relative;
+}
+
+.block {
+  background: red;
+  height: 150vh;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
+
+.slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.slide {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 24px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+section {
+  height: 1000px;
+}
+
+.abaut-us {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: red;
+}
+.abaut-us h1.animation {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(-100px);
+      -ms-transform: translateX(-100px);
+          transform: translateX(-100px);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.abaut-us h1.animation.active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.gallery {
+  background: yellow;
+}
+
+.contact {
+  background: blue;
+}
+
+.scroll-element.active .nav__link {
+  color: red;
+}
 @supports (-webkit-appearance:none){
 
 }

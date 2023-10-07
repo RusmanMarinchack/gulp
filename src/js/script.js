@@ -1,6 +1,126 @@
-"use strict"
+// "use strict"
 
 document.addEventListener('DOMContentLoaded', function () {
+  
+  // ====
+  // const sliderContainer = document.querySelector('.slider-container');
+  // const slider = document.querySelector('.slider');
+  // const slides = document.querySelectorAll('.slide');
+  // const prevButton = document.querySelector('.prev-button');
+  // const nextButton = document.querySelector('.next-button');
+  // const slideHeight = slides[0].offsetHeight;
+  // let currentIndex = 0;
+  // let scrolling = false;
+
+  // prevButton.addEventListener('click', () => {
+  //   currentIndex = Math.max(currentIndex - 1, 0);
+  //   updateSliderPosition();
+  // });
+
+  // nextButton.addEventListener('click', () => {
+  //   currentIndex = Math.min(currentIndex + 1, slides.length - 1);
+  //   updateSliderPosition();
+  // });
+
+  // function updateSliderPosition() {
+  //   slider.style.transform = `translateY(-${currentIndex * slideHeight}px)`;
+  // }
+
+  // window.addEventListener('scroll', () => {
+  //   if (!scrolling) {
+  //     const scrollDirection = window.pageYOffset > currentIndex * slideHeight ? 1 : -1;
+  //     currentIndex = Math.min(Math.max(currentIndex + scrollDirection, 0), slides.length - 1);
+  //     updateSliderPosition();
+  //     scrolling = true;
+  //     setTimeout(() => {
+  //       scrolling = false;
+  //     }, 1000); // Затримка, щоб уникнути швидкого перемикання слайдів
+  //   }
+  // });
+
+  // updateSliderPosition();
+
+  // // Ініціалізація Swiper та ScrollMagic
+  // const controller = new ScrollMagic.Controller();
+
+  // new ScrollMagic.Scene({
+  //   triggerElement: '.slider-container',
+  //   triggerHook: 0,
+  //   duration: () => slider.offsetHeight ,
+  // })
+  // .setPin('.slider-container')
+  // .addTo(controller);
+  // ====
+
+
+
+  // const controller = new ScrollMagic.Controller();
+
+  // const slider = document.querySelector('.slider');
+  // const slideWidth = slider.offsetWidth;
+  // let currentIndex = 0;
+  // let allowScrollDown = false;
+
+  // // Ініціалізація Swiper та ScrollMagic
+
+  // new ScrollMagic.Scene({
+  //   triggerElement: '.slider-container',
+  //   triggerHook: 0,
+  //   duration: () => slider.offsetHeight * 5 ,
+  // })
+  // .setPin('.slider-container')
+  // .addTo(controller);
+
+  // const slideCount = slider.children.length;
+
+  // // Сцена, яка відслідковує досягнення останнього слайда
+  // new ScrollMagic.Scene({
+  //   triggerElement: '.slider .slide:last-child',
+  //   triggerHook: 1,
+  // })
+  // .on('enter', () => {
+  //   allowScrollDown = true;
+  // })
+  // .on('leave', () => {
+  //   allowScrollDown = false;
+  // })
+  // .addTo(controller);
+
+  // document.querySelector('.prev-button').addEventListener('click', () => {
+  //   changeSlide(currentIndex - 1);
+  // });
+
+  // document.querySelector('.next-button').addEventListener('click', () => {
+  //   changeSlide(currentIndex + 1);
+  // });
+
+  // function changeSlide(index) {
+  //   currentIndex = Math.min(Math.max(index, 0), slideCount - 1);
+  //   gsap.to(slider, {
+  //     x: -currentIndex * slideWidth,
+  //     duration: 0.5,
+  //   });
+  // }
+
+  // window.addEventListener('scroll', (event) => {
+  //   const scrollPosition = window.scrollY;
+  //   const newSlideIndex = Math.floor(scrollPosition / slideWidth);
+
+  //   if (newSlideIndex !== currentIndex) {
+  //     changeSlide(newSlideIndex);
+  //   }
+
+  //   if (!allowScrollDown && event.deltaY > 0) {
+  //     event.preventDefault();
+  //   }
+  // });
+
+
+
+
+
+
+
 
   // const swiper = new Swiper('.swiper', {
   //     navigation: {
@@ -118,20 +238,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // // Робимо щоб під списки можна було відкривати по табу, якщо сенсорний екран.
   // function touchSubList() {
-  //     let navItem = document.querySelectorAll('.sublist-item')
+  //   let subListArrow = document.querySelectorAll('.sublist-item__arrow');
+  //   let subLists = document.querySelectorAll('.sublist');
 
-  //     if(navItem.length > 0) {
-  //         if(document.body.classList.contains('_touch')) {
-  //             navItem.forEach(item => {
-  //                 item.addEventListener('click', function() {
-  //                     this.classList.toggle('active')
-  //                 })
-  //             })
+  //   if (subListArrow.length > 0) {
+  //     subListArrow.forEach(arrow => {
+  //       arrow.addEventListener('click', function () {
+
+  //         let subList = this.nextElementSibling;
+
+  //         if (subList.classList.contains('active')) {
+  //           subList.classList.remove('active');
+  //           this.classList.remove('active');
+  //         } else {
+  //           removeActiveSubMenusOnSameLevel(this);
+  //           subList.classList.add('active');
+  //           this.classList.add('active');
   //         }
-  //     }
-  // }
-  // touchSubList()
+  //       });
 
+  //       function removeActiveSubMenusOnSameLevel(clickedArrow) {
+  //         let siblings = Array.from(clickedArrow.parentElement.parentElement.children);
+
+  //         siblings.forEach(sibling => {
+  //           let subMenu = sibling.querySelector('.sublist');
+
+  //           if (subMenu && subMenu !== clickedArrow.nextElementSibling) {
+  //             subMenu.classList.remove('active');
+
+  //           }
+  //         });
+  //       }
+  //     });
+
+  //     document.addEventListener('click', (e) => {
+  //       if (!isDescendant(e.target, subLists) && !isDescendant(e.target, subListArrow)) {
+  //         subLists.forEach(item => {
+  //           if (item.classList.contains('active')) {
+  //             item.classList.remove('active');
+  //           }
+  //         });
+  //       }
+  //     });
+  //   }
+  // }
+
+  // function isDescendant(child, parentArray) {
+  //   for (let parent of parentArray) {
+  //     if (parent.contains(child)) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
+
+  // touchSubList();
 
   // // Робимо активні попапи посайту.
   // function activePopap() {
@@ -280,19 +441,19 @@ document.addEventListener('DOMContentLoaded', function () {
   //   let sections = document.querySelectorAll('section')
 
   //   // if (elementsScroll.length > 0) {
-  //   //   window.addEventListener('scroll', scrollActiveItem)
+  //   //   window.addEventListener('scroll', activeScrollItem)
 
-  //   //   function scrollActiveItem() {
-  //   //     let scrollPosition = window.scrollY + (window.innerHeight / 2)
+  //   //   function activeScrollItem() {
+  //   //     let scrollPocition = window.scrollY + (window.innerHeight / 2)
 
   //   //     sections.forEach(section => {
   //   //       let sectionTop = section.offsetTop
-
-  //   //       if(scrollPosition >= sectionTop) {
+  //   //       console.log(scrollPocition)
+  //   //       if (scrollPocition >= sectionTop) {
   //   //         let sectionId = section.getAttribute('id')
 
   //   //         elementsScroll.forEach(item => {
-  //   //           if (item.dataset.scrollId === sectionId) {
+  //   //           if (sectionId === item.dataset.scrollId) {
   //   //             item.classList.add('active')
   //   //           } else {
   //   //             item.classList.remove('active')
@@ -302,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //   //     })
   //   //   }
 
-  //   //   scrollActiveItem()
+  //   //   activeScrollItem()
   //   // }
 
   //   // if (elementsAnimation.length > 0) {
